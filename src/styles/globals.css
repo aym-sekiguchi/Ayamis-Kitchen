@@ -4,7 +4,7 @@
 
 @layer utilities {
   h2 {
-    @apply text-3xl font-semibold;
+    @apply text-2xl md:text-3xl font-semibold;
   }
   ul {
     @apply list-disc pl-4;

@@ -36,7 +36,7 @@ const Notepad = (props: notepadProps) => {
           className="w-full h-8 -mt-4 bg-repeat-space bg-contain"
           style={{ backgroundImage: "url(/images/notepad-head.svg)" }}
         ></div>
-        <p className="text-3xl">{title}</p>
+        <p className="text-2xl md:text-3xl">{title}</p>
         <div className="border-t border-current w-full"></div>
         <p className="w-full">{date}</p>
         <div className="w-full flex gap-1 flex-wrap">
