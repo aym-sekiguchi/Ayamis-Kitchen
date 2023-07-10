@@ -10,7 +10,7 @@ const kaiseiDecol = Kaisei_Decol({ weight: ["400", "500"], subsets: ["latin"] })
 export default function App({ Component, pageProps }: AppProps) {
   // Google Tag Manager start
   useEffect(() => {
-    TagManager.initialize({ gtmId: "G-J9MJHV7H6X" });
+    TagManager.initialize({ gtmId: "GTM-W4PM9BQ" });
   }, []);
 
   useEffect(() => {
