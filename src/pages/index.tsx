@@ -24,7 +24,7 @@ export default function Home(props: Props) {
   const tagAreaRef = useRef<HTMLDivElement>(null);
   const [tagAreaActive, setTagAreaActive] = useState(false);
   const tag: boolean[] = [];
-  const [tagActive, setTagActive] = useState(tag);
+  const tagActive = tag;
   const [search, setSearch] = useState(allPosts);
   const tagRefs = useRef<RefObject<HTMLButtonElement>[]>([]);
   const allSelectRef = useRef<HTMLButtonElement>(null);
@@ -39,18 +39,22 @@ export default function Home(props: Props) {
     tag.push(true);
     tagRefs.current[index] = createRef<HTMLButtonElement>();
   });
+  // tagActiveが全てtrueだったら"全て選択"ボタンを非アクティブにする
   if (tagActive.every((active) => active === true)) {
     allSelectRef.current?.classList.remove("bg-[#441800]");
     allSelectRef.current?.classList.add("bg-[#ccc]");
     allSelectRef.current?.classList.add("pointer-events-none");
   }
+  // タグで表示する記事を絞り込む
   const searchByTags = () => {
     const activeIndexOfActiveTag: number[] = [];
+    // tagActiveがtrueのindexをactiveIndexOfActiveTagに格納
     tagActive.map((element: boolean, index: number) => {
       if (element === true) {
         activeIndexOfActiveTag.push(index);
       }
     });
+    // activePostsByTagに↑で絞り込んだタグの記事のメタデータを格納する
     const activePostsByTag: any[] = [];
     activeIndexOfActiveTag.map((indexOfActiveTag: number) =>
       activePostsByTag.push(

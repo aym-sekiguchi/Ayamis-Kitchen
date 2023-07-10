@@ -12,6 +12,14 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
 export const getAllPosts = async () => {
   const posts = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID || "",
+    // filter: {
+    //   property: "title",
+    //   formula: {
+    //     string: {
+    //       equals: title,
+    //     },
+    //   },
+    // },
     page_size: 100,
   });
 

@@ -16,7 +16,9 @@ type PostProps = {
     };
   };
   allPosts: any;
-  params: any;
+  params: {
+    slug: string;
+  };
   markdown: string;
 };
 
@@ -34,7 +36,7 @@ export const getStaticPaths = async () => {
     fallback: "blocking",
   };
 };
-export const getStaticProps = async ({ params }: any) => {
+export const getStaticProps = async ({ params }: Params) => {
   const post = await getSinglePost(params.slug);
   return {
     props: {
