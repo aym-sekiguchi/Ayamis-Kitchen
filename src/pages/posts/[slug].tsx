@@ -2,6 +2,7 @@
 
 import { getAllPosts, getSinglePost } from "@/library/notionAPI";
 import { GetStaticPaths } from "next";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -79,6 +80,8 @@ const Post = ({ post }: PostProps) => {
   // });
   return (
     <>
+      {/* seo */}
+      <NextSeo title={post.metaData.title} />
       {/* 一覧に戻るボタン */}
       <Link
         // ref={prevRef}
